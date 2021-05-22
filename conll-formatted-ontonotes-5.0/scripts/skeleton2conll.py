@@ -1081,7 +1081,7 @@ def start(input_fname, conll_fname, output_fname, encoding, changes):
     sentences = []
     i=0
     w=0
-    conll_file = codecs.open(conll_fname, "r", encoding)
+    conll_file = codecs.open(conll_fname, "r", encoding, errors='ignore')
     for line in conll_file:
         if(line.strip() == ""):
 
