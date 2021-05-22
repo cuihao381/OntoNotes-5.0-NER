@@ -79,8 +79,6 @@ OntoNotes-5.0-NER/
       -dev.txt
       -test.txt
 ```
-生成的结果是还不能直接用于ner训练，因为ner列不是BIO等方式tag的，可以借助fastNLP( https://github.com/fastnlp/fastNLP )的
-OntoNoteNERDataLoader读取数据。
 
 v12的版本
 ```
@@ -145,6 +143,11 @@ python collect_conll.py -v v4 -d bc bn mz nw
         Co-reference chain information encoded in a parenthesis structure. For documents that do
          not have co-reference annotations, each line is represented with a "-".
 
+#### Step 4: 将train.txt, dev.txt, test.txt转成bieso格式
+
+python3 o5_bieso.py --input_file v12/english/test.txt --output_file o5.en.test.v12.ner
+python3 o5_bieso.py --input_file v12/english/dev.txt --output_file o5.en.dev.v12.ner
+python3 o5_bieso.py --input_file v12/english/train.txt --output_file o5.en.train.v12.ner
 
 #### Reference
 http://conll.cemantix.org/2012/data.html
